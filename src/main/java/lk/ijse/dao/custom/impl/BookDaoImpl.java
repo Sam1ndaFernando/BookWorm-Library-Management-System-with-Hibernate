@@ -14,21 +14,21 @@ import static lk.ijse.dao.BaseDao.executeTransaction;
 public class BookDaoImpl implements BookDao {
     @Override
     public void save(Book entity) throws SQLException {
-        executeTransaction(session -> session.save(entity));
-
+        BaseDao.executeTransaction(session -> session.save(entity));
     }
 
     @Override
     public void update(Book entity) throws SQLException {
-        executeTransaction(session -> {
+        BaseDao.executeTransaction(session -> {
             session.update(entity);
             return null;
         });
+
     }
 
     @Override
     public void delete(int id) throws SQLException {
-        executeTransaction(session -> {
+        BaseDao.executeTransaction(session -> {
             Book entity = null;
             try {
                 entity = getbyId(id);
@@ -38,15 +38,17 @@ public class BookDaoImpl implements BookDao {
             session.delete(entity);
             return null;
         });
+
     }
 
     @Override
     public List<Book> loadAll() throws SQLException {
-        return   executeTransaction(session -> {
+        return   BaseDao.executeTransaction(session -> {
             Query query = session.createQuery("FROM Book ");
             return query.getResultList();
 
         });
+
     }
 
     @Override
