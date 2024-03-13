@@ -8,21 +8,28 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="792.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ManageBranchesFormController">
    <children>
-      <TextField fx:id="txtName" layoutX="205.0" layoutY="141.0" prefHeight="52.0" prefWidth="337.0" promptText="Name">
+      <ImageView fitHeight="792.0" fitWidth="1239.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/subpane.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="97.0" layoutX="437.0" layoutY="-23.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="411.0" />
+      <TextField fx:id="txtName" layoutX="205.0" layoutY="141.0" prefHeight="52.0" prefWidth="337.0" promptText="Name" style="-fx-background-radius: 20;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtContact" layoutX="786.0" layoutY="150.0" prefHeight="52.0" prefWidth="337.0" promptText="Contact no">
+      <TextField fx:id="txtContact" layoutX="786.0" layoutY="150.0" prefHeight="52.0" prefWidth="337.0" promptText="Contact no" style="-fx-background-radius: 20;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAddress" layoutX="207.0" layoutY="247.0" prefHeight="52.0" prefWidth="325.0" promptText="Address">
+      <TextField fx:id="txtAddress" layoutX="207.0" layoutY="247.0" prefHeight="52.0" prefWidth="325.0" promptText="Address" style="-fx-background-radius: 20;">
          <font>
             <Font size="15.0" />
          </font>
@@ -42,7 +49,7 @@
             <Font name="DejaVu Sans Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="452.0" layoutY="38.0" prefHeight="52.0" prefWidth="403.0" text="Manage Branches" textFill="#0d005e">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="6.0" prefHeight="52.0" prefWidth="403.0" text="Manage Branches" textFill="#0d005e">
          <font>
             <Font name="Abyssinica SIL" size="40.0" />
          </font>

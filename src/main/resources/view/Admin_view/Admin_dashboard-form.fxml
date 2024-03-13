@@ -14,9 +14,14 @@
 
 <AnchorPane fx:id="root" prefHeight="870.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminDashboardFormController">
    <children>
+      <ImageView fitHeight="870.0" fitWidth="1239.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/bg2.jpg" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="pane2" layoutY="79.0" prefHeight="792.0" prefWidth="1239.0">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="35.0" fill="#64ccc5" height="165.0" layoutX="735.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="278.0" />
+            <Rectangle arcHeight="30.0" arcWidth="35.0" height="165.0" layoutX="735.0" layoutY="74.0" opacity="0.35" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="278.0" />
             <Label layoutX="372.0" layoutY="353.0" prefHeight="36.0" prefWidth="346.0" text="Today's Checked-Out Titles">
                <font>
                   <Font name="DejaVu Serif Bold" size="22.0" />
@@ -30,8 +35,8 @@
                   <TableColumn fx:id="colDueDate" minWidth="0.0" prefWidth="177.0" text="Due Date" />
               </columns>
             </TableView>
-            <Rectangle arcHeight="30.0" arcWidth="35.0" fill="#64ccc5" height="165.0" layoutX="224.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="278.0" />
-            <Label layoutX="769.0" layoutY="154.0" prefHeight="72.0" prefWidth="216.0" text="Total Books">
+            <Rectangle arcHeight="30.0" arcWidth="35.0" height="165.0" layoutX="224.0" layoutY="74.0" opacity="0.35" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="278.0" />
+            <Label blendMode="COLOR_BURN" layoutX="769.0" layoutY="154.0" prefHeight="72.0" prefWidth="216.0" text="Total Books">
                <font>
                   <Font size="40.0" />
                </font>
@@ -44,7 +49,7 @@
                   <Font size="65.0" />
                </font>
             </Label>
-            <Label layoutX="263.0" layoutY="157.0" prefHeight="58.0" prefWidth="216.0" text="Total Users">
+            <Label blendMode="COLOR_BURN" layoutX="263.0" layoutY="157.0" prefHeight="58.0" prefWidth="216.0" text="Total Users">
                <font>
                   <Font size="40.0" />
                </font>
