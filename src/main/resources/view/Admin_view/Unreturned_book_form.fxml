@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="792.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UnreturnedBookFormController">
+   <children>
+      <Label layoutX="394.0" layoutY="46.0" prefHeight="60.0" prefWidth="393.0" text="Unreturned Books" textFill="#06004f">
+         <font>
+            <Font name="Abyssinica SIL" size="44.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblOverdueBooks" layoutX="211.0" layoutY="217.0" prefHeight="379.0" prefWidth="759.0">
+        <columns>
+          <TableColumn fx:id="colEmail" prefWidth="186.0" text="Borrower Email" />
+          <TableColumn fx:id="colBook" prefWidth="222.0" text="Book name" />
+            <TableColumn fx:id="colDate" prefWidth="196.0" text="Due date" />
+            <TableColumn fx:id="colOverdueDays" prefWidth="138.0" text="Days overdue" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="cmbBranch" layoutX="863.0" layoutY="133.0" onAction="#cmbBranchOnActions" prefHeight="36.0" prefWidth="279.0" promptText="Select a branch" style="-fx-background-color: white;" />
+      <Label layoutX="753.0" layoutY="137.0" prefHeight="28.0" prefWidth="110.0" text="Branch :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -10,7 +10,6 @@ public class Launcher extends Application {
         launch(args);
 
     }
-
     @Override
     public void start(Stage stage) throws Exception {
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"))));

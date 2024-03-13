@@ -9,6 +9,5 @@ public interface CrudDao <T>{
     void delete(int id) throws  SQLException;
     List<T> loadAll() throws SQLException;
     T get(String data) throws SQLException;
-
     T getbyId(int id) throws SQLException;
 }
