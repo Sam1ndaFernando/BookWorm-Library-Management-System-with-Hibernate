@@ -91,7 +91,7 @@ public class UserDashboardFormController {
         textFieldFocus();
         loadAllBooks();
         setComboBoxValue();
-        setUserName();
+        /*setUserName();*/
 
     }
 
