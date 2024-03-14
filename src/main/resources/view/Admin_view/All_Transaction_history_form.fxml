@@ -48,9 +48,9 @@
          </font>
       </TextField>
       <ImageView fitHeight="43.0" fitWidth="37.0" layoutX="797.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
+        <!-- <image>
             <Image url="@../../images/icons8-search-80.png" />
-         </image>
+         </image>-->
       </ImageView>
       <JFXButton fx:id="btnOverdue" buttonType="RAISED" layoutX="904.0" layoutY="685.0" onAction="#btnOverdueAction" prefHeight="51.0" prefWidth="203.0" style="-fx-background-color: #102C57; -fx-background-radius: 15;" text="Overdue Books" textFill="WHITE">
          <font>

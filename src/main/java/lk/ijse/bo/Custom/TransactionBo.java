@@ -7,8 +7,19 @@ import java.util.List;
 
 public interface TransactionBo {
 
-    boolean saveTransactiondata(int userId, String text, TransactionDto dto) throws SQLException;
-
     List<TransactionDto> getUnreturned(int userId) throws SQLException;
+
+
+    TransactionDto gettransactionByBookUser(String bookId, int userId) throws SQLException;
+
+    void saveTransactiondata(int userId, String bookTitle, TransactionDto dto) throws SQLException;
+
+    boolean update(TransactionDto dto) throws SQLException;
+
+    List<TransactionDto> getAll() throws SQLException;
+
+    List<TransactionDto> getOverDue() throws SQLException;
+
+    List<TransactionDto> getByUser(int userId) throws SQLException;
 
 }

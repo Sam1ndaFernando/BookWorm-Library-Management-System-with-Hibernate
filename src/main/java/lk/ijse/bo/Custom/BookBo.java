@@ -4,9 +4,9 @@ import lk.ijse.dto.BookDto;
 
 import java.sql.SQLException;
 import java.util.List;
+import org.hibernate.Session;
 
 public interface BookBo {
-
     void saveBook(BookDto bookDto) throws SQLException;
 
     List<BookDto> getAllBook() throws SQLException;
@@ -20,5 +20,6 @@ public interface BookBo {
     List<BookDto> getBookByBranch(String branchName) throws SQLException;
 
     List<BookDto> getBookByCategory(String category, String branchName) throws SQLException;
+
 
 }

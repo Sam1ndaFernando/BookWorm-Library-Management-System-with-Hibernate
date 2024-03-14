@@ -65,9 +65,9 @@
       <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" layoutX="885.0" layoutY="340.0" onAction="#btnAddOnAction" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: #45CFDD; -fx-background-radius: 20;" text="Add">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
+              <!-- <image>
                   <Image url="@../../images/icons8-add-64.png" />
-               </image>
+               </image>-->
             </ImageView>
          </graphic>
          <font>
@@ -77,9 +77,9 @@
       <JFXButton fx:id="btnUpdate" alignment="CENTER" contentDisplay="CENTER" layoutX="885.0" layoutY="445.0" onAction="#txtUpdateOnAction" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: #A0BFE0; -fx-background-radius: 20;" styleClass="button-color2" text="Update">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
+              <!-- <image>
                   <Image url="@../../images/icons8-edit-80.png" />
-               </image>
+               </image>-->
             </ImageView>
          </graphic>
          <font>
@@ -89,9 +89,9 @@
       <JFXButton fx:id="txtDelete" alignment="CENTER" contentDisplay="CENTER" layoutX="884.0" layoutY="550.0" onAction="#txtDeleteAction" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: #FF9B9B; -fx-background-radius: 20;" text="Delete">
          <graphic>
             <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
+               <!--<image>
                   <Image url="@../../images/icons8-delete-80.png" />
-               </image>
+               </image>-->
             </ImageView>
          </graphic>
          <font>

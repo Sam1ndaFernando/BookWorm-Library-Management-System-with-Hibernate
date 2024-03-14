@@ -43,7 +43,9 @@ public class AdminLoginFormController {
 
     @FXML
     void btnLogInOnAction(ActionEvent event) {
+
         login();
+
     }
 
     @FXML
