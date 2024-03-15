@@ -9,22 +9,23 @@ import java.util.function.Function;
 
 public abstract class BaseDao<T> {
     public static  <R> R executeTransaction(Function<Session, R> action) throws SQLException {
+
         // Get a Hibernate session
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = null;
 
         try {
-            transaction = session.beginTransaction(); // Begin the transaction
-            R result = action.apply(session); // Execute the action and capture the result
-            transaction.commit(); // Commit the transaction
-            return result; // Return the captured result
+            transaction = session.beginTransaction();
+            R result = action.apply(session);
+            transaction.commit();
+            return result;
         } catch (Exception e) {
             if (transaction != null) {
-                transaction.rollback(); // Rollback if any errors occur
+                transaction.rollback();
             }
-            throw e; // Re-throw the exception
+            throw e;
         } finally {
-            session.close(); // Close the session regardless of success or failure
+            session.close();
         }
     }
 }
