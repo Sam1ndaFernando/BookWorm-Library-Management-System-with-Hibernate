@@ -138,6 +138,7 @@ public class BorrowBookFormController {
             if (result.isPresent() && result.get() == yesButton) {
 
                 borrowBook();
+                clearFields();
             }
         }else{
             new Alert(Alert.AlertType.INFORMATION,"please select a book").show();
