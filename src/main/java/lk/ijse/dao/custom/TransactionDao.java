@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom;
 
+import lk.ijse.dao.SuperDao;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Transaction;
 import lk.ijse.entity.User;
@@ -7,7 +8,7 @@ import lk.ijse.entity.User;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface TransactionDao {
+public interface TransactionDao extends SuperDao {
 
     List<Transaction> getByUserId(User user) throws SQLException;
 
@@ -23,4 +24,5 @@ public interface TransactionDao {
 
     List<Transaction> getAllByUser(User user) throws SQLException;
 
+    List<Transaction> getTodayCheckOuts() throws SQLException;
 }

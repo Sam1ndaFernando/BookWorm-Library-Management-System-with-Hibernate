@@ -1,27 +1,26 @@
 package lk.ijse.bo.Custom.impl;
 
+
 import lk.ijse.bo.Custom.BookBo;
+import lk.ijse.dao.DaoFactory;
 import lk.ijse.dao.custom.BookDao;
 import lk.ijse.dao.custom.BranchDao;
-import lk.ijse.dao.custom.impl.BookDaoImpl;
-import lk.ijse.dao.custom.impl.BranchDaoImpl;
 import lk.ijse.dto.BookDto;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Branch;
-import org.hibernate.Session;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookBoImpl implements BookBo {
-    private BookDao bookDao = new BookDaoImpl();
-    private BranchDao branchDao = new BranchDaoImpl();
-
+    private BookDao bookDao = (BookDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BOOK);
+    private BranchDao branchDao = (BranchDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BRANCH);
     @Override
     public void saveBook(BookDto bookDto) throws SQLException {
         Branch branch = branchDao.getbyId(bookDto.getBranchId());
         bookDao.save(new Book(bookDto.getTitle(), bookDto.getAuthor(), bookDto.getCategory(), bookDto.getAvailability(),branch ));
+
     }
 
     @Override
@@ -38,13 +37,11 @@ public class BookBoImpl implements BookBo {
     public BookDto getBook(String data) throws SQLException {
         Book book = bookDao.get(data);
         return new BookDto(book.getBookId(), book.getTitle(), book.getAuthor(), book.getCategory(), book.getAvailability(), book.getBranchId().getBranchId());
-
     }
 
     @Override
     public void deleteBook(int id) throws SQLException {
-        bookDao.delete(id);
-
+     bookDao.delete(id);
     }
 
     @Override
@@ -56,11 +53,11 @@ public class BookBoImpl implements BookBo {
     @Override
     public List<BookDto> getBookByBranch(String branchName) throws SQLException {
         Branch branch = branchDao.get(branchName);
-        List<Book> list = bookDao.getBookByBranch(branch);
-        List<BookDto> dtos = new ArrayList<>();
-        for (Book book :list){
-            dtos.add(new BookDto(book.getBookId(), book.getTitle(),book.getAuthor(), book.getCategory(), book.getAvailability(),book.getBranchId().getBranchId()));
-        }
+       List<Book> list = bookDao.getBookByBranch(branch);
+       List<BookDto> dtos = new ArrayList<>();
+       for (Book book :list){
+           dtos.add(new BookDto(book.getBookId(), book.getTitle(),book.getAuthor(), book.getCategory(), book.getAvailability(),book.getBranchId().getBranchId()));
+       }
         return dtos;
     }
 
@@ -75,4 +72,11 @@ public class BookBoImpl implements BookBo {
         return dtos;
 
     }
+
+    @Override
+    public long getBookCount() throws SQLException {
+       return bookDao.getBookCount();
+    }
+
+
 }

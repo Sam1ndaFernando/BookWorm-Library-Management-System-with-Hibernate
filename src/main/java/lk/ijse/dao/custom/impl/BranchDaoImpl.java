@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
+
 import lk.ijse.dao.BaseDao;
 import lk.ijse.dao.custom.BranchDao;
 import lk.ijse.entity.Branch;
@@ -14,7 +15,6 @@ public class BranchDaoImpl implements BranchDao {
     @Override
     public void save(Branch entity) throws SQLException {
         executeTransaction(session -> session.save(entity));
-
     }
 
     @Override
@@ -39,6 +39,10 @@ public class BranchDaoImpl implements BranchDao {
         });
     }
 
+    public Branch getbyId(int id) throws SQLException {
+        return executeTransaction(session -> session.get(Branch.class,id));
+    }
+
     @Override
     public List<Branch> loadAll() throws SQLException {
         return   executeTransaction(session -> {
@@ -60,11 +64,5 @@ public class BranchDaoImpl implements BranchDao {
             System.out.println("ok");
             return null;
         });
-    }
-
-    @Override
-    public Branch getbyId(int id) throws SQLException {
-        return executeTransaction(session -> session.get(Branch.class,id));
-
     }
 }

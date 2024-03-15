@@ -1,10 +1,9 @@
 package lk.ijse.bo.Custom.impl;
 
 import lk.ijse.bo.Custom.UserBo;
+import lk.ijse.dao.DaoFactory;
 import lk.ijse.dao.custom.BranchDao;
 import lk.ijse.dao.custom.UserDao;
-import lk.ijse.dao.custom.impl.BranchDaoImpl;
-import lk.ijse.dao.custom.impl.UserDaoImpl;
 import lk.ijse.dto.UserDto;
 import lk.ijse.entity.Branch;
 import lk.ijse.entity.User;
@@ -14,15 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserBoImpl implements UserBo {
-
-    private final UserDao userDao = new UserDaoImpl();
-    private BranchDao branchDao = new BranchDaoImpl();
+    private final UserDao userDao = (UserDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.USER);
+    private BranchDao branchDao = (BranchDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.BRANCH);
 
     @Override
     public void saveUser(UserDto userDto) throws SQLException {
-        Branch branch = branchDao.get(userDto.getBranchName());
+            Branch branch = branchDao.get(userDto.getBranchName());
 
-        userDao.save(new User(userDto.getName(), userDto.getEmail(), userDto.getPassword(),branch));
+              userDao.save(new User(userDto.getName(), userDto.getEmail(), userDto.getPassword(),branch));
     }
 
     @Override
@@ -49,14 +47,19 @@ public class UserBoImpl implements UserBo {
 
     @Override
     public UserDto getUserById(int id) throws SQLException {
-        User user =  userDao.getbyId(id);
+      User user =  userDao.getbyId(id);
         System.out.println(user.getBranch().getBranchName());
-        return new UserDto(user.getName(), user.getEmail(), user.getPassword(),user.getBranch().getBranchName());
+      return new UserDto(user.getName(), user.getEmail(), user.getPassword(),user.getBranch().getBranchName());
     }
 
     @Override
     public void deleteUser(int id) throws SQLException {
         userDao.delete(id);
 
+    }
+
+    @Override
+    public long getUserCount() throws SQLException {
+        return  userDao.getUserCount();
     }
 }

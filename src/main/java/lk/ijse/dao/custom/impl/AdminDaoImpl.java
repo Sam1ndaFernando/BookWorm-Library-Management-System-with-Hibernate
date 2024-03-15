@@ -10,23 +10,26 @@ import java.util.List;
 
 import static lk.ijse.dao.BaseDao.executeTransaction;
 
+
 public class AdminDaoImpl implements AdminDao {
     @Override
     public void save(Admin entity) throws SQLException {
-        executeTransaction(session -> session.save(entity));
+        BaseDao.executeTransaction(session -> session.save(entity));
+
     }
 
     @Override
     public void update(Admin entity) throws SQLException {
-        executeTransaction(session -> {
-            session.update(entity);
-            return null;
+        BaseDao.executeTransaction(session -> {
+           session.update(entity);
+           return null;
         });
+
     }
 
     @Override
     public void delete(int id) throws SQLException {
-        executeTransaction(session -> {
+        BaseDao.executeTransaction(session -> {
             Admin entity = null;
             try {
                 entity = getbyId(id);
@@ -40,15 +43,18 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public List<Admin> loadAll() throws SQLException {
-        return   executeTransaction(session -> {
-            Query query = session.createQuery("FROM Admin");
-            return query.getResultList();
 
-        });
+       return   BaseDao.executeTransaction(session -> {
+            Query query = session.createQuery("FROM Admin");
+             return query.getResultList();
+
+         });
+
     }
 
     @Override
-    public Admin get(String data) throws SQLException {
+    public Admin get( String data) throws SQLException {
+
         return executeTransaction(session -> {
             Query query = session.createQuery("from Admin where userName=:username");
             query.setParameter("username", data);
@@ -64,6 +70,6 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public Admin getbyId(int id) throws SQLException {
         return executeTransaction(session -> session.get(Admin.class,id));
-
     }
+
 }

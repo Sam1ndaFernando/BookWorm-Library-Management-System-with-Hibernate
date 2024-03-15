@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
+
 import lk.ijse.dao.BaseDao;
 import lk.ijse.dao.custom.TransactionDao;
 import lk.ijse.entity.Book;
@@ -11,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static lk.ijse.dao.BaseDao.executeTransaction;
+
 
 public class TransactionDaoImpl implements TransactionDao {
 
@@ -90,6 +92,15 @@ public class TransactionDaoImpl implements TransactionDao {
         return   BaseDao.executeTransaction(session -> {
             Query query = session.createQuery("FROM Transaction where user=:user");
             query.setParameter("user",user);
+            return query.getResultList();
+
+        });
+    }
+
+    @Override
+    public List<Transaction> getTodayCheckOuts() throws SQLException {
+        return   BaseDao.executeTransaction(session -> {
+            Query query = session.createQuery("FROM Transaction where Date(borrowed)= CURRENT DATE ");
             return query.getResultList();
 
         });

@@ -1,8 +1,9 @@
 package lk.ijse.bo.Custom.impl;
 
+
 import lk.ijse.bo.Custom.AdminBo;
+import lk.ijse.dao.DaoFactory;
 import lk.ijse.dao.custom.AdminDao;
-import lk.ijse.dao.custom.impl.AdminDaoImpl;
 import lk.ijse.dto.AdminDto;
 import lk.ijse.entity.Admin;
 
@@ -11,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminBoImpl implements AdminBo {
+    private AdminDao adminDao = (AdminDao) DaoFactory.getDaoFactory().getDao(DaoFactory.DataType.ADMIN);
 
-    private AdminDao adminDao = new AdminDaoImpl();
     @Override
     public List<AdminDto> getAllAdmins() throws SQLException {
         List<Admin> entities = adminDao.loadAll();
@@ -60,3 +61,4 @@ public class AdminBoImpl implements AdminBo {
         return new AdminDto(admin.getAdminId(), admin.getName(), admin.getEmail(), admin.getUserName(), admin.getPassword());
     }
 }
+

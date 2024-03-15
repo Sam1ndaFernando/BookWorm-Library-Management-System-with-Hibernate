@@ -76,7 +76,7 @@ public class BookDaoImpl implements BookDao {
             Query query = session.createQuery("from Book where branch=:branch");
             query.setParameter("branch", branch);
             List<Book> books= query.getResultList();
-            return books;
+             return books;
 
         });
     }
@@ -92,4 +92,14 @@ public class BookDaoImpl implements BookDao {
 
         });
     }
+
+    @Override
+    public long getBookCount() throws SQLException {
+        return executeTransaction(session -> {
+            Long bookCount =(Long) session.createQuery("select count(*) from Book ").getSingleResult();
+            return bookCount;
+        });
+    }
+
+
 }

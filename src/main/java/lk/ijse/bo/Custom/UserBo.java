@@ -1,11 +1,13 @@
 package lk.ijse.bo.Custom;
 
+import lk.ijse.bo.SuperBo;
 import lk.ijse.dto.UserDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface UserBo {
+public interface UserBo  extends SuperBo {
+
 
     void saveUser(UserDto userDto) throws SQLException;
 
@@ -19,4 +21,5 @@ public interface UserBo {
 
     void deleteUser(int id) throws SQLException;
 
+    long getUserCount() throws SQLException;
 }
