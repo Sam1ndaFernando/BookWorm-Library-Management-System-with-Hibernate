@@ -39,6 +39,7 @@ public class UserLoginFormController {
 
     @FXML
     private TextField txtUserName;
+
     public static int userId;
     private UserBo userBo = new UserBoImpl();
 

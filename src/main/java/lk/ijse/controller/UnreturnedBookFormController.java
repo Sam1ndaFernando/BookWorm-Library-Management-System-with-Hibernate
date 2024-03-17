@@ -80,7 +80,7 @@ public class UnreturnedBookFormController {
         try {
             dtoList = transactionBo.getOverDue();
             for (TransactionDto dto : dtoList){
-                long daysOverdue = Math.abs(Period.between(dto.getDueDate(), LocalDate.now()).getDays()); // Calculate absolute days
+                long daysOverdue = Math.abs(Period.between(dto.getDueDate(), LocalDate.now()).getDays()); // calculate absolute days
                 observableList.add(new TransactionTm(dto.getUserName(), dto.getBookId(), dto.getDueDate(),daysOverdue));
 
             }

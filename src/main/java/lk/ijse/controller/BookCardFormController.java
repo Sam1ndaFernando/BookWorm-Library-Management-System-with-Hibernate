@@ -71,7 +71,7 @@ public class BookCardFormController {
         }
 
     }
-    @Transactional
+    @Transactional      // transaction management
     private void updateBookAndTransaction(BookDto dto1, TransactionDto dto) {
 
         if (dto != null) {

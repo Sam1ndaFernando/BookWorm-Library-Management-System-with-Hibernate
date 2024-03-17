@@ -219,7 +219,7 @@ public class UserDashboardFormController {
         } else {
             filteredyList.clear();
             for (BookTm tm : observableList) {
-                if (tm.getStatus().equals("Available")) { // filter based on availability
+                if (tm.getStatus().equals("Available")) {
                     filteredyList.add(tm);
                 }
             }
@@ -237,13 +237,13 @@ public class UserDashboardFormController {
             tblDashboardBook.getItems().setAll(observableList);
         } else {
             System.out.println(observableList);
-            filteredCategoryList.clear(); // clear existing filtered data
+            filteredCategoryList.clear();
             for (BookTm tm : observableList) {
                 if (tm.getCategory().equals(selectedCategory)) {
                     filteredCategoryList.add(tm); // add books matching the selected category
                 }
             }
-            tblDashboardBook.setItems(filteredCategoryList); // set filtered list to table view
+            tblDashboardBook.setItems(filteredCategoryList);
         }
     }
 

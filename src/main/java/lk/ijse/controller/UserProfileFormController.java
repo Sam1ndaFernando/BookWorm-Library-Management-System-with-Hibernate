@@ -152,7 +152,6 @@ public class UserProfileFormController {
         txtPw.setEditable(true);
         txtTele.setEditable(true);
 
-
     }
 
     private static int getUserId(String email) throws SQLException {

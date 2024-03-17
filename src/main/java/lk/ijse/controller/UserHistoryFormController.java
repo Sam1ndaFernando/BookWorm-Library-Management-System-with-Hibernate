@@ -46,7 +46,6 @@ public class UserHistoryFormController {
         setCellValuefactory();
         loadAllTransactionByUser();
 
-
     }
 
     private void loadAllTransactionByUser() {
