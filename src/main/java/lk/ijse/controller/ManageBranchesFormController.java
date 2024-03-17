@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.AdminBo;
 import lk.ijse.bo.Custom.BranchBo;
 import lk.ijse.bo.Custom.impl.AdminBoImpl;
@@ -57,8 +58,8 @@ public class ManageBranchesFormController {
     private TextField txtName;
     private int branchId;
     private int adminId;
-    private BranchBo branchBo = new BranchBoImpl();
-    private AdminBo adminBo = new AdminBoImpl();
+    private BranchBo branchBo = (BranchBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BRANCH);
+    private AdminBo adminBo = (AdminBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.ADMIN);
     public  void  initialize(){
         setCellValueFactory();
         setTableValues();

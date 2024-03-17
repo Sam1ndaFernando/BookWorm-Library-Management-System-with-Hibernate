@@ -18,6 +18,7 @@ public class Admin {
     @Column(nullable = false,unique = true)
     private String email;
     @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+
     private List<Branch> branches;
 
     public Admin(int adminId, String name, String password, String userName, String email, List<Branch> branches) {

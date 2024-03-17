@@ -17,7 +17,7 @@
             <Image url="@../../images/userBorrowBook.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="99.0" layoutX="489.0" layoutY="-14.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="267.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="84.0" layoutX="489.0" layoutY="31.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="267.0" />
       <ScrollPane fx:id="ScrollPane" layoutX="142.0" layoutY="166.0" prefHeight="524.0" prefWidth="960.0" styleClass="my-scroll-pane">
          <content>
             <GridPane fx:id="bookGrid" prefHeight="75.0" prefWidth="187.0">
@@ -27,7 +27,7 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="494.0" layoutY="8.0" prefHeight="60.0" prefWidth="261.0" text="My Library" textFill="#0c0057">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="494.0" layoutY="38.0" prefHeight="60.0" prefWidth="261.0" text="My Library" textFill="#0c0057">
          <font>
             <Font name="Abyssinica SIL" size="44.0" />
          </font>

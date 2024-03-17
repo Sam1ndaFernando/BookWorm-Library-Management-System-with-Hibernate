@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.BranchBo;
 import lk.ijse.bo.Custom.TransactionBo;
 import lk.ijse.bo.Custom.impl.BranchBoImpl;
@@ -40,12 +41,11 @@ public class UnreturnedBookFormController {
 
     @FXML
     private TableView<TransactionTm> tblOverdueBooks;
-    private TransactionBo transactionBo = new TransactionBoImpl();
-    private BranchBo branchBo = new BranchBoImpl();
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
+    private BranchBo branchBo = (BranchBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BRANCH);
     private List<TransactionDto> dtoList;
     private ObservableList<TransactionTm> observableList = FXCollections.observableArrayList();
     private ObservableList<TransactionTm> filteredlist = FXCollections.observableArrayList();
-
 
 
     public void initialize(){

@@ -21,7 +21,7 @@ public class User {
     @ManyToMany
     @JoinTable(
             name = "Transaction",
-           joinColumns =  @JoinColumn(name = "userId"),
+            joinColumns =  @JoinColumn(name = "userId"),
             inverseJoinColumns = @JoinColumn(name = "bookId")
     )
     private List<Book> bookList;

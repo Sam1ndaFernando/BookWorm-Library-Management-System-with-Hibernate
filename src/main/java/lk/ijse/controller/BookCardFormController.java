@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.BookBo;
 import lk.ijse.bo.Custom.TransactionBo;
 import lk.ijse.bo.Custom.impl.BookBoImpl;
@@ -36,8 +37,8 @@ public class BookCardFormController {
     private Label lblCategory;
 
     private MyLibraryFormController libraryFormController;
-    private BookBo bookBo = new BookBoImpl();
-    private TransactionBo transactionBo = new TransactionBoImpl();
+    private BookBo bookBo = (BookBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BOOK);
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
     private TransactionDto transactionDto ;
 
     @FXML

@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.AdminBo;
 import lk.ijse.bo.Custom.impl.AdminBoImpl;
 import lk.ijse.dto.AdminDto;
@@ -39,7 +40,7 @@ public class AdminLoginFormController {
     @FXML
     private JFXButton btnLogIn;
 
-    private AdminBo adminBo = new AdminBoImpl();
+    private AdminBo adminBo = (AdminBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.ADMIN);
 
     @FXML
     void btnLogInOnAction(ActionEvent event) {

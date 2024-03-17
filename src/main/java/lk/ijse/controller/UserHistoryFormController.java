@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.TransactionBo;
 import lk.ijse.bo.Custom.UserBo;
 import lk.ijse.bo.Custom.impl.TransactionBoImpl;
@@ -36,8 +37,8 @@ public class UserHistoryFormController {
 
     @FXML
     private TableView<TransactionTm> tblHistory;
-    private TransactionBo transactionBo = new TransactionBoImpl();
-    private UserBo userBo = new UserBoImpl();
+    private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
+
     private ObservableList<TransactionTm> observableList = FXCollections.observableArrayList();
 
 

@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.UserBo;
 import lk.ijse.bo.Custom.impl.UserBoImpl;
 import lk.ijse.dto.UserDto;
@@ -44,7 +45,7 @@ public class UserProfileFormController {
     @FXML
     private TextField txtTele;
     private static String email;
-    private static UserBo userBo = new UserBoImpl();
+    private static UserBo userBo = (UserBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.USER);
     public static int id;
 
     public void initialize(){

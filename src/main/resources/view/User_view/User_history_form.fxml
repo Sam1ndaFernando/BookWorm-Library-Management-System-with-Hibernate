@@ -16,8 +16,8 @@
             <Image url="@../../images/userBorrowBook.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="96.0" layoutX="482.0" layoutY="-16.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="251.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="468.0" layoutY="4.0" prefHeight="68.0" prefWidth="273.0" text="My History">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="81.0" layoutX="482.0" layoutY="39.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="251.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="469.0" layoutY="43.0" prefHeight="68.0" prefWidth="273.0" text="My History">
          <font>
             <Font name="Abyssinica SIL" size="44.0" />
          </font>

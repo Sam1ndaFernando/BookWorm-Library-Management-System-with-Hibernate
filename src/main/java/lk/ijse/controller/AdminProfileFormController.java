@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.Custom.AdminBo;
 import lk.ijse.bo.Custom.impl.AdminBoImpl;
 import lk.ijse.dto.AdminDto;
@@ -53,7 +54,7 @@ public class AdminProfileFormController {
     private JFXButton btnSaveChanges;
 
     public static int id;
-    private static AdminBo adminBo = new AdminBoImpl();
+    private static AdminBo adminBo = (AdminBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.ADMIN);
 
     public void initialize() {
         setFormValues();

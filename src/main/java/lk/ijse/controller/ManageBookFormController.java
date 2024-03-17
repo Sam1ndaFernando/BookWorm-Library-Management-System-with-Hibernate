@@ -9,12 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.bo.Custom.BookBo;
 import lk.ijse.bo.Custom.BranchBo;
-import lk.ijse.bo.Custom.impl.BookBoImpl;
-import lk.ijse.bo.Custom.impl.BranchBoImpl;
 import lk.ijse.dto.BookDto;
 import lk.ijse.dto.BranchDto;
 import lk.ijse.regex.RegexPattern;
 import lk.ijse.tm.BookTm;
+import lk.ijse.bo.BoFactory;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -62,8 +62,8 @@ public class ManageBookFormController {
     @FXML
     private TextField txtTitle;
     private  int id;
-    private BookBo bookBo = new BookBoImpl();
-    private BranchBo branchBo = new BranchBoImpl();
+    private BookBo bookBo = (BookBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BOOK);
+    private BranchBo branchBo = (BranchBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.BRANCH);
     public void initialize(){
         setBranches();
         setStatus();
@@ -163,7 +163,6 @@ public class ManageBookFormController {
             new Alert(Alert.AlertType.ERROR,"Invalid Category").show();
             return  false;
         }
-
 
         return  true;
 
