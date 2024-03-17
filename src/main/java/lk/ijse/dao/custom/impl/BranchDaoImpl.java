@@ -1,7 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
 
-import lk.ijse.dao.BaseDao;
 import lk.ijse.dao.custom.BranchDao;
 import lk.ijse.entity.Branch;
 import org.hibernate.query.Query;
@@ -9,7 +8,7 @@ import org.hibernate.query.Query;
 import java.sql.SQLException;
 import java.util.List;
 
-import static lk.ijse.dao.BaseDao.executeTransaction;
+import static lk.ijse.dao.CrudUtil.executeTransaction;
 
 public class BranchDaoImpl implements BranchDao {
     @Override

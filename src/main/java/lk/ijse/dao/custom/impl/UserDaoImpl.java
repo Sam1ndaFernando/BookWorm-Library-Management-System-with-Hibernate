@@ -1,6 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
-import lk.ijse.dao.BaseDao;
+import lk.ijse.dao.CrudUtil;
 import lk.ijse.dao.custom.UserDao;
 import lk.ijse.entity.User;
 import org.hibernate.query.Query;
@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import java.sql.SQLException;
 import java.util.List;
 
-import static lk.ijse.dao.BaseDao.executeTransaction;
+import static lk.ijse.dao.CrudUtil.executeTransaction;
 
 public class UserDaoImpl implements UserDao  {
 
@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao  {
 
     @Override
     public void update(User entity) throws SQLException {
-         BaseDao.<Void>executeTransaction(session -> {
+         CrudUtil.<Void>executeTransaction(session -> {
              session.update(entity);
              return null;
          });
@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao  {
     @Override
     public void delete(int id) throws SQLException {
         User user = getbyId(id);
-        BaseDao.<Void>executeTransaction(session ->{
+        CrudUtil.<Void>executeTransaction(session ->{
                 session.delete(user);
                 return null;
         });

@@ -7,10 +7,9 @@ import org.hibernate.Transaction;
 import java.sql.SQLException;
 import java.util.function.Function;
 
-public abstract class BaseDao<T> {
+public abstract class CrudUtil<T> {
     public static  <R> R executeTransaction(Function<Session, R> action) throws SQLException {
 
-        // Get a Hibernate session
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = null;
 

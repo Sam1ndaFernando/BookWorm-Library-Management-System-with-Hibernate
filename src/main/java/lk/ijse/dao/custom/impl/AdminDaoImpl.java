@@ -1,6 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
-import lk.ijse.dao.BaseDao;
+import lk.ijse.dao.CrudUtil;
 import lk.ijse.dao.custom.AdminDao;
 import lk.ijse.entity.Admin;
 import org.hibernate.query.Query;
@@ -8,19 +8,19 @@ import org.hibernate.query.Query;
 import java.sql.SQLException;
 import java.util.List;
 
-import static lk.ijse.dao.BaseDao.executeTransaction;
+import static lk.ijse.dao.CrudUtil.executeTransaction;
 
 
 public class AdminDaoImpl implements AdminDao {
     @Override
     public void save(Admin entity) throws SQLException {
-        BaseDao.executeTransaction(session -> session.save(entity));
+        CrudUtil.executeTransaction(session -> session.save(entity));
 
     }
 
     @Override
     public void update(Admin entity) throws SQLException {
-        BaseDao.executeTransaction(session -> {
+        CrudUtil.executeTransaction(session -> {
            session.update(entity);
            return null;
         });
@@ -29,7 +29,7 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public void delete(int id) throws SQLException {
-        BaseDao.executeTransaction(session -> {
+        CrudUtil.executeTransaction(session -> {
             Admin entity = null;
             try {
                 entity = getbyId(id);
@@ -44,7 +44,7 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public List<Admin> loadAll() throws SQLException {
 
-       return   BaseDao.executeTransaction(session -> {
+       return   CrudUtil.executeTransaction(session -> {
             Query query = session.createQuery("FROM Admin");
              return query.getResultList();
 

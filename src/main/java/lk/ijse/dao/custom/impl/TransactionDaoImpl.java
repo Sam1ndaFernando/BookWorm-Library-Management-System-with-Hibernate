@@ -1,7 +1,7 @@
 package lk.ijse.dao.custom.impl;
 
 
-import lk.ijse.dao.BaseDao;
+import lk.ijse.dao.CrudUtil;
 import lk.ijse.dao.custom.TransactionDao;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Transaction;
@@ -11,7 +11,7 @@ import org.hibernate.query.Query;
 import java.sql.SQLException;
 import java.util.List;
 
-import static lk.ijse.dao.BaseDao.executeTransaction;
+import static lk.ijse.dao.CrudUtil.executeTransaction;
 
 
 public class TransactionDaoImpl implements TransactionDao {
@@ -71,7 +71,7 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public List<Transaction> getAll() throws SQLException {
-        return   BaseDao.executeTransaction(session -> {
+        return   CrudUtil.executeTransaction(session -> {
             Query query = session.createQuery("FROM Transaction ");
             return query.getResultList();
 
@@ -80,7 +80,7 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public List<Transaction> getOverDue() throws SQLException {
-        return BaseDao.executeTransaction(session -> {
+        return CrudUtil.executeTransaction(session -> {
             Query query = session.createQuery("FROM Transaction where isReturn=:isreturn and dueDate<CURRENT_TIMESTAMP");
             query.setParameter("isreturn", false);
             return query.getResultList();
@@ -89,7 +89,7 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public List<Transaction> getAllByUser(User user) throws SQLException {
-        return   BaseDao.executeTransaction(session -> {
+        return   CrudUtil.executeTransaction(session -> {
             Query query = session.createQuery("FROM Transaction where user=:user");
             query.setParameter("user",user);
             return query.getResultList();
@@ -99,7 +99,7 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public List<Transaction> getTodayCheckOuts() throws SQLException {
-        return   BaseDao.executeTransaction(session -> {
+        return   CrudUtil.executeTransaction(session -> {
             Query query = session.createQuery("FROM Transaction where Date(borrowed)= CURRENT DATE ");
             return query.getResultList();
 

@@ -1,6 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
-import lk.ijse.dao.BaseDao;
+import lk.ijse.dao.CrudUtil;
 import lk.ijse.dao.custom.BookDao;
 import lk.ijse.entity.Book;
 import lk.ijse.entity.Branch;
@@ -9,17 +9,17 @@ import org.hibernate.query.Query;
 import java.sql.SQLException;
 import java.util.List;
 
-import static lk.ijse.dao.BaseDao.executeTransaction;
+import static lk.ijse.dao.CrudUtil.executeTransaction;
 
 public class BookDaoImpl implements BookDao {
     @Override
     public void save(Book entity) throws SQLException {
-        BaseDao.executeTransaction(session -> session.save(entity));
+        CrudUtil.executeTransaction(session -> session.save(entity));
     }
 
     @Override
     public void update(Book entity) throws SQLException {
-        BaseDao.executeTransaction(session -> {
+        CrudUtil.executeTransaction(session -> {
             session.update(entity);
             return null;
         });
@@ -28,7 +28,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void delete(int id) throws SQLException {
-        BaseDao.executeTransaction(session -> {
+        CrudUtil.executeTransaction(session -> {
             Book entity = null;
             try {
                 entity = getbyId(id);
@@ -43,7 +43,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> loadAll() throws SQLException {
-        return   BaseDao.executeTransaction(session -> {
+        return   CrudUtil.executeTransaction(session -> {
             Query query = session.createQuery("FROM Book ");
             return query.getResultList();
 

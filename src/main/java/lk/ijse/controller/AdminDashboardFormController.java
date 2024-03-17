@@ -71,6 +71,7 @@ public class AdminDashboardFormController {
     private UserBo userBo = (UserBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.USER);
     private TransactionBo transactionBo = (TransactionBo) BoFactory.getBoFactory().getBoType(BoFactory.BoTypes.TRANSACTION);
     private ObservableList<TransactionTm> observableList = FXCollections.observableArrayList();
+
   public void initialize(){
       loadUserCount();
       loadBookCount();
@@ -93,7 +94,7 @@ public class AdminDashboardFormController {
             System.out.println(dtoList);
             for (TransactionDto dto : dtoList){
 
-                observableList.add(new TransactionTm(dto.getBranchName(), dto.getBookId(), dto.getDueDate(), Long.parseLong(dto.getUserName())));
+                observableList.add(new TransactionTm(dto.getBranchName(), dto.getBookId(), dto.getDueDate(),dto.getUserName()));
             }
             tblCheckOuts.getItems().clear();
             tblCheckOuts.setItems(observableList);
