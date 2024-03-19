@@ -48,7 +48,7 @@ public class UserBoImpl implements UserBo {
     @Override
     public UserDto getUserById(int id) throws SQLException {
       User user =  userDao.getbyId(id);
-        System.out.println(user.getBranch().getBranchName());
+//        System.out.println(user.getBranch().getBranchName());
       return new UserDto(user.getName(), user.getEmail(), user.getPassword(),user.getBranch().getBranchName());
     }
 
